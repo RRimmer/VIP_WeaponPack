@@ -2,7 +2,7 @@
 
 **Модифицированная версия плагина VIP_WeaponPack**
 
-Авторы: Drumanid & NF & Pisex & Rimmer  
+Авторы: [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) & [@RRimmer](https://github.com/RRimmer)  
 Версия: 3.0  
 GitHub: https://github.com/RRimmer/VIP_WeaponPack
 

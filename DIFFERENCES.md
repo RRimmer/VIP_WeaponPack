@@ -24,7 +24,7 @@
 | Характеристика | OLD (v2.0) | Fork NickFox+Pisex (v2.0.1) | myFork (v3.0) |
 |---|---|---|---|
 | Версия | 2.0 | 2.0.1 | 3.0 |
-| Авторы | Drumanid | Drumanid & NF & Pisex | Drumanid & NF & Pisex & Rimmer |
+| Авторы | [@Drumanid](https://github.com/Drumanid) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) & [@RRimmer](https://github.com/RRimmer) |
 | Поддержка mp_halftime | ❌ Нет | ❌ Нет | ✅ Да |
 | Система кук (Cookie) | ❌ Нет | ✅ Да | ✅ Да |
 | Многоязычность | ❌ Нет | ❌ Нет | ✅ Да |

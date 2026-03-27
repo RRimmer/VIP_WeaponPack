@@ -1,0 +1,103 @@
+// Здесь вы можите менять цвета а так же тег
+// Пример выглядеть снизу
+// Если нужна помощь заходи, помогу!
+// https://discord.gg/tWGJnE3DVU
+//
+// CSS цвета - https://hlmod.net/resources/more-colors.975/
+////////////////////////////////////////////////////////////
+// CSGO цвета ↓
+// {DARKRED} 
+// {LIGHTRED} 
+// {ORANGE} 
+// {YELLOW} 
+// {OLIVE} 
+// {LIGHTGREEN} 
+// {LIME} 
+// {GREEN} 
+// {DEFAULT} 
+// {GREY} 
+// {BLUEGREY} 
+// {BLUE} 
+// {LIGHTBLUE} 
+// {DARKBLUE} 
+// {ORCHID}
+
+"Phrases"
+{
+	// ========== ПРЕФИКС ДЛЯ ЧАТ-СООБЩЕНИЙ ==========
+	"WP_Prefix"
+	{
+		"ru"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}[VIP] {YELLOW}|{DARKBLUE} "
+	}
+
+	// ========== ЧАТ-СООБЩЕНИЯ ==========
+	"WP_Cooldown"
+	{
+		"#format"	"{1:d}"
+		"ru"	"Комплект оружия будет доступен через: {ORANGE}%i{DARKBLUE} раунд(а)!"
+	}
+
+	"WP_Warmup"
+	{
+		"ru"	"{ORANGE}НЕЛЬЗЯ{DARKBLUE} взять комплект оружий во время разминки!"
+	}
+
+	"WP_FirstRound"
+	{
+		"ru"	"{ORANGE}НЕЛЬЗЯ{DARKBLUE} взять комплект оружий в {ORANGE}первом{DARKBLUE} раунде!"
+	}
+
+	"WP_AlreadyGot"
+	{
+		"ru"	"Вы уже {ORANGE}БРАЛИ{DARKBLUE} набор в этом раунде!"
+	}
+
+	"WP_CanUseAgain"
+	{
+		"#format"	"{1:d}"
+		"ru"	"Снова взять можно будет через {ORANGE}%i{DARKBLUE} раунд(а)!"
+	}
+
+	"WP_NotAlive"
+	{
+		"ru"	"Вы должны быть {ORANGE}ЖИВЫ{DARKBLUE}, чтобы взять себе комплект оружий!"
+	}
+
+	"WP_NotAvailable"
+	{
+		"#format"	"{1:d}"
+		"ru"	"Эта категория будет доступна с {ORANGE}%i{DARKBLUE} раунда!"
+	}
+
+	"WIP_GotWeapon"
+	{
+		"#format"	"{1:N}"
+		"ru"	"{ORANGE}%N{DARKBLUE} выдал себе комплект оружия."
+	}
+
+	// ========== МЕНЮ (БЕЗ ПРЕФИКСА) ==========
+	"WP_MenuTitle"
+	{
+		"ru"	"Комплект оружия"
+	}
+
+	"WP_MenuShow"
+	{
+		"ru"	"Показывать: %s"
+	}
+
+	"WP_ShowAlways"
+	{
+		"ru"	"Всегда"
+	}
+
+	"WP_ShowAfterDeath"
+	{
+		"ru"	"После смерти"
+	}
+
+	"WP_ShowNever"
+	{
+		"ru"	"Никогда"
+	}
+}
