@@ -13,8 +13,9 @@
 #### 📥 Загрузки и Releases
 - ![Downloads](https://img.shields.io/github/downloads/RRimmer/VIP_WeaponPack/total?style=flat-square&label=Всего+загрузок)
 - ![Latest](https://img.shields.io/github/v/release/RRimmer/VIP_WeaponPack?style=flat-square&label=Последняя+версия)
+- ![License](https://img.shields.io/github/license/RRimmer/VIP_WeaponPack?style=flat-square&label=Лицензия)
 
-**[📥 Все релизы →](https://github.com/RRimmer/VIP_WeaponPack/releases)**
+**[📥 Все релизы →](https://github.com/RRimmer/VIP_WeaponPack/releases)** | **[📜 MIT License →](LICENSE)**
 
 ---
 
@@ -506,7 +507,18 @@ OLD (v2.0 FINAL)
 
 ---
 
-## 🔗 Дополнительные ресурсы
+## � Лицензия
+
+**MIT License** © 2026 Rimmer, Drumanid, NF, Pisex
+
+Проект распространяется под свободной [MIT License](LICENSE), что позволяет:
+- ✅ Использовать в коммерческих и личных целях
+- ✅ Модифицировать и распространять
+- ✅ Включать в другие проекты
+
+**Обязательное требование:** указывать оригинальных авторов.
+
+---
 
 - 📖 **[README myFork](myFork/README.md)** - Полная документация текущей версии
 - 🎯 **[GitHub Issues](https://github.com/RRimmer/VIP_WeaponPack/issues)** - Сообщить о проблеме
