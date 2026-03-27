@@ -31,19 +31,46 @@ GitHub: https://github.com/RRimmer/VIP_WeaponPack
 ✅ **Многоязычность** - Поддержка русского языка с красивыми цветами  
 ✅ **Правильная карта проверка** - Поддержка всех карт de_ и cs_  
 
+## Требования к установке
+
+- ✅ **SourceMod** - основа для плагинов
+- ✅ **MetaMod Source** - загрузчик расширений
+- ✅ **[VIP-Core](https://github.com/R1KO/VIP-Core)** - основной модуль VIP системы
+
 ## Установка
 
-1. Скопируйте файлы в соответствующие директории:
+1. Убедитесь, что установлены **SourceMod**, **MetaMod** и **VIP-Core**
+
+2. Скопируйте файлы в соответствующие директории:
 ```
-addons/sourcemod/scripting/VIP_WeaponPack.sp
+addons/sourcemod/scripting/VIP_WeaponPack.sp (исходник, необязательно)
+addons/sourcemod/plugins/vip/VIP_WeaponPack.smx
 addons/sourcemod/translations/vip_weaponpack.phrases.txt
 cfg/vip/VIP_WeaponPack.cfg
 ```
 
-2. Скомпилируйте плагин:
+3. **Переводы VIP-modules** (обновите до последней версии или добавьте вручную):
+
+Добавьте в `addons/sourcemod/translations/vip_modules.phrases.txt`:
 ```
-./spcomp VIP_WeaponPack.sp -i ./include -O2 -t4 -v2 -o ../plugins/VIP_WeaponPack.smx
+"Weaponpack"
+{
+    "ru"		"Комплект оружий | WP"
+    "en"		"Weapon Pack | WP"
+    "pt"		"Pack de Armas | WP"
+    "fi"		"Aseiden setti | WP"
+    "ua"		"Комплект зброї | WP"
+    "es"		"Set de armas | WP"
+    "ar"		"مجموعة سلاح | WP"
+}
 ```
+
+Добавьте в `addons/sourcemod/data/vip/cfg/groups.ini`:
+```
+"Weaponpack"			"1"
+```
+
+5. Перезагрузите сервер
 
 ## Команды
 
@@ -63,7 +90,6 @@ cfg/vip/VIP_WeaponPack.cfg
 
 - SourceMod 1.10+
 - VIP Core система
-- Плагин должен работать на серверах CS:GO, CSS, HL2MP
 
 ## Ключевые выборы в конфигурации
 

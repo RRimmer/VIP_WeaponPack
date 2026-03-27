@@ -21,10 +21,10 @@
 
 ## 📊 Таблица сравнения основных характеристик
 
-| Характеристика | OLD (v2.0 FINAL) | Fork NickFox+Pisex (v2.0.1) | myFork (v3.0) |
+| Характеристика | OLD (v2.0) | Fork NickFox+Pisex (v2.0.1) | myFork (v3.0) |
 |---|---|---|---|
-| Версия | 2.0 FINAL | 2.0.1 | 3.0 |
-| Авторы | Drumanid | Drumanid & NF | Drumanid & NF & Pisex & Rimmer |
+| Версия | 2.0 | 2.0.1 | 3.0 |
+| Авторы | Drumanid | Drumanid & NF & Pisex | Drumanid & NF & Pisex & Rimmer |
 | Поддержка mp_halftime | ❌ Нет | ❌ Нет | ✅ Да |
 | Система кук (Cookie) | ❌ Нет | ✅ Да | ✅ Да |
 | Многоязычность | ❌ Нет | ❌ Нет | ✅ Да |
@@ -507,7 +507,7 @@ OLD (v2.0 FINAL)
 
 ---
 
-## � Лицензия
+## Лицензия
 
 **MIT License** © 2026 Rimmer, Drumanid, NF, Pisex
 
@@ -523,5 +523,4 @@ OLD (v2.0 FINAL)
 - 📖 **[README myFork](myFork/README.md)** - Полная документация текущей версии
 - 🎯 **[GitHub Issues](https://github.com/RRimmer/VIP_WeaponPack/issues)** - Сообщить о проблеме
 - 📝 **[GitHub Discussions](https://github.com/RRimmer/VIP_WeaponPack/discussions)** - Обсуждения
-- 💬 **[Discord](https://discord.gg/tWGJnE3DVU)** - Чат сообщества
 
