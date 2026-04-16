@@ -21,20 +21,24 @@
 
 ## 📊 Таблица сравнения основных характеристик
 
-| Характеристика | OLD (v2.0) | Fork NickFox+Pisex (v2.0.1) | myFork (v3.0) |
-|---|---|---|---|
-| Версия | 2.0 | 2.0.1 | 3.0 |
-| Авторы | [@Drumanid](https://github.com/Drumanid) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) & [@RRimmer](https://github.com/RRimmer) |
-| Поддержка mp_halftime | ❌ Нет | ❌ Нет | ✅ Да |
-| Система кук (Cookie) | ❌ Нет | ✅ Да | ✅ Да |
-| Многоязычность | ❌ Нет | ❌ Нет | ✅ Да |
-| Цветные сообщения | Хардкод | Хардкод | Динамические (phrases) |
-| Проверка раунда для категорий | ❌ Нет | ❌ Нет | ✅ Да |
-| Проверка смерти перед меню | ❌ Нет | ✅ Да | ✅ Да |
-| ConVar c_Enabled | ❌ Нет | ✅ Да | ✅ Да |
-| Опция "показывать меню" | ❌ Нет | ✅ Да | ✅ Да |
-| Уведомление всему серверу | ✅ Да | ❌ Нет | ✅ Да |
-| Объект Menu вместо Panel | ❌ Panel | ✅ Menu | ✅ Menu |
+| Характеристика | OLD (v2.0) | Fork NickFox+Pisex (v2.0.1) | myFork (v3.0) | Rimmer (v3.5) |
+|---|---|---|---|---|
+| Версия | 2.0 | 2.0.1 | 3.0 | 3.5 |
+| Авторы | [@Drumanid](https://github.com/Drumanid) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) & [@RRimmer](https://github.com/RRimmer) | [@Drumanid](https://github.com/Drumanid) & [@NickFox007](https://github.com/NickFox007) & [@Pisex](https://github.com/Pisex) & [@RRimmer](https://github.com/RRimmer) |
+| Поддержка mp_halftime | ❌ Нет | ❌ Нет | ✅ Да | ✅ Да |
+| Система кук (Cookie) | ❌ Нет | ✅ Да | ✅ Да | ✅ Да |
+| Многоязычность | ❌ Нет | ❌ Нет | ✅ Да | ✅ Да |
+| Цветные сообщения | Хардкод | Хардкод | Динамические (phrases) | Динамические (phrases) |
+| Проверка раунда для категорий | ❌ Нет | ❌ Нет | ✅ Да | ✅ Да |
+| Проверка смерти перед меню | ❌ Нет | ✅ Да | ✅ Да | ✅ Да |
+| ConVar c_Enabled | ❌ Нет | ✅ Да | ✅ Да | ✅ Да |
+| Опция "показывать меню" | ❌ Нет | ✅ Да | ✅ Да | ✅ Да |
+| Уведомление всему серверу | ✅ Да | ❌ Нет | ✅ Да | ✅ Да |
+| Объект Menu вместо Panel | ❌ Panel | ✅ Menu | ✅ Menu | ✅ Menu |
+| **Гибкое отображение меню (c_MenuDisplay)** | ❌ Нет | ❌ Нет | ❌ Нет | ✅ Да |
+| **Блокировка пистолетного раунда (c_FirstRound)** | ❌ Нет | ❌ Нет | ❌ Нет | ✅ Да |
+| **Контроль времени выдачи (c_MenuTime)** | ❌ Нет | ❌ Нет | ❌ Нет | ✅ Да |
+| **Отладочное логирование (c_Debug)** | ❌ Нет | ❌ Нет | ❌ Нет | ✅ Да |
 
 ---
 
@@ -419,14 +423,267 @@ if(KvGotoFirstSubKey(kv))
 
 ---
 
-## 📈 Эволюция версий
+## 🆕 Новые возможности в версии 3.5
+
+### 1. **Гибкое отображение меню (c_MenuDisplay)**
+
+Три режима отображения меню с разными поведениями:
+
+#### Режим 0 - Старый (по умолчанию в версии 3.0)
+```
+Меню НЕ открывается если оружие заблокировано по раунду
+```
+
+#### Режим 1 - Новое в v3.5
+```cpp
+// Меню ВСЕГДА открывается
+// Но недоступные по раундам пункты СКРЫТЫ
+Menu menu = CreateMenu(SelectWeapon);
+int displayMode = GetMenuDisplayMode(); // 0, 1 или 2
+
+if(displayMode == 1)
+{
+	// Проверяем раунды - если недоступно, НЕ ДОБАВЛЯЕМ в меню
+	int iRoundRequired = KvGetNum(kv, "round", 0);
+	if(g_iRounds <= iRoundRequired)
+	{
+		continue; // Пропускаем этот пункт
+	}
+}
+AddMenuItem(menu, MenuName, MenuName);
+```
+
+#### Режим 2 - Новое в v3.5
+```cpp
+// Меню ВСЕГДА открывается
+// Недоступные по раундам пункты ВИДНЫ, но ЗАБЛОКИРОВАНЫ
+
+if(displayMode == 2)
+{
+	// Проверяем раунды
+	int iRoundRequired = KvGetNum(kv, "round", 0);
+	if(g_iRounds <= iRoundRequired)
+	{
+		// Показываем, но как неактивный пункт
+		char szInfo[256];
+		Format(szInfo, sizeof(szInfo), "%s (доступно на раунде %d)", MenuName, iRoundRequired);
+		AddMenuItem(menu, MenuName, szInfo, ITEMDRAW_DISABLED);
+		continue;
+	}
+}
+AddMenuItem(menu, MenuName, MenuName);
+```
+
+**Результат:** Администраторы могут выбрать, как показывать недоступные пункты.
+
+---
+
+### 2. **Блокировка пистолетного раунда (c_FirstRound)**
+
+Новая ConVar для контроля пистолетного раунда:
+
+```cpp
+ConVar c_FirstRound;
+
+public void OnPluginStart()
+{
+	c_FirstRound = CreateConVar("c_FirstRound", "1", 
+		"1 - Блокировать пистолетный раунд | 0 - Разрешить");
+}
+
+public Action RoundStart(Handle event, const char[] name, bool dontBroadcast)
+{
+	if(c_FirstRound.BoolValue && GetRound() == 1)
+	{
+		// Пистолетный раунд - НЕ ПОКАЗЫВАЕМ МЕНЮ
+		DebugLog("First round detected, blocking menu");
+		return Plugin_Continue;
+	}
+	
+	// Показываем меню...
+}
+```
+
+**Результат:** Теперь можно заблокировать выдачу оружия на пистолетном раунде.
+
+---
+
+### 3. **Контроль времени выдачи оружия (c_MenuTime)**
+
+Две опции для контроля времени:
+
+```cpp
+ConVar c_MenuTime;
+
+// Получить время окна выдачи оружия
+float GetIssueWindowSeconds()
+{
+	int iMenuTime = c_MenuTime.IntValue;
+	if(iMenuTime > 0)
+	{
+		return float(iMenuTime); // Свое время (в секундах)
+	}
+
+	// Получаем mp_buytime
+	static ConVar mp_buytime = null;
+	if(mp_buytime == null)
+	{
+		mp_buytime = FindConVar("mp_buytime");
+	}
+
+	float fSeconds = mp_buytime.FloatValue * 60.0;
+	return (fSeconds < 0.0) ? 0.0 : fSeconds;
+}
+
+// Проверить, истекло ли время
+bool IsIssueTimeExpired(float &fSecondsLeft)
+{
+	float fLimit = GetIssueWindowSeconds();
+	float fElapsed = GetGameTime() - g_fRoundStartTime;
+	fSecondsLeft = fLimit - fElapsed;
+	
+	return (fElapsed > fLimit);
+}
+```
+
+**Варианты:**
+- `c_MenuTime = 0` - используется `mp_buytime` (по умолчанию)
+- `c_MenuTime = 30` - oружие можно взять только в первые 30 секунд раунда
+
+**Результат:** Админ может установить свое время выдачи или использовать встроенное.
+
+---
+
+### 4. **Отладочное логирование (c_Debug)**
+
+Новая система логирования для диагностики:
+
+```cpp
+ConVar c_Debug;
+char g_sDebugLogFile[PLATFORM_MAX_PATH];
+
+void DebugLog(const char[] format, any ...)
+{
+	if(c_Debug == null || !c_Debug.BoolValue)
+	{
+		return;
+	}
+
+	char sBuffer[256];
+	VFormat(sBuffer, sizeof(sBuffer), format, 2);
+
+	if(g_sDebugLogFile[0] == '\0')
+	{
+		BuildPath(Path_SM, g_sDebugLogFile, sizeof(g_sDebugLogFile), 
+			"logs/VIP_WeaponPack.log");
+	}
+
+	LogToFileEx(g_sDebugLogFile, "[VIP_WeaponPack] %s", sBuffer);
+}
+
+// Использование:
+public Action RoundStart(Handle event, const char[] name, bool dontBroadcast)
+{
+	DebugLog("Round started: roundNum=%d, time=%f", g_iRounds, GetGameTime());
+}
+
+public Action PlayerDeath(Handle event, const char[] name, bool dontBroadcast)
+{	
+	int client = GetClientOfUserId(GetEventInt(event,"userid"));
+	DebugLog("PlayerDeath: client=%N round=%d", client, g_iRounds);
+}
+```
+
+**Логи сохраняются в:** `addons/sourcemod/logs/VIP_WeaponPack.log`
+
+**Результат:** Админы могут включить отладку для диагностики проблем.
+
+---
+
+### 5. **Улучшенное отслеживание Cooldown**
+
+Новая переменная для per-player round limit:
+
+```cpp
+int g_iRoundLimitApplied[MAXPLAYERS+1];
+
+// Получить оставшиеся раунды для cooldown
+int GetCooldownDisplayRounds(int client)
+{
+	int iRemaining = g_iRound[client] - g_iRounds + 1;
+	if(iRemaining < 1)
+	{
+		iRemaining = 1;
+	}
+
+	int iAppliedLimit = g_iRoundLimitApplied[client];
+	if(iAppliedLimit > 0 && iRemaining > iAppliedLimit)
+	{
+		iRemaining = iAppliedLimit;
+	}
+
+	return iRemaining;
+}
+```
+
+**Результат:** Более точный расчет оставшихся раундов cooldown для каждого игрока.
+
+---
+
+### 6. **Улучшенные хелпер-функции**
+
+Новые функции для работы с фразами и префиксами:
+
+```cpp
+// Печать фразы с целым числом
+void PrintPrefixedIntPhrase(int client, const char[] phrase, int value)
+{
+	char prefix[128], message[256];
+	Format(prefix, sizeof(prefix), "%T", "WP_Prefix", client);
+	Format(message, sizeof(message), "%T", phrase, client, value);
+	CPrintToChat(client, "%s%s", prefix, message);
+}
+
+// Печать фразы без параметров
+void PrintPrefixedPhrase(int client, const char[] phrase)
+{
+	char prefix[128], message[256];
+	Format(prefix, sizeof(prefix), "%T", "WP_Prefix", client);
+	Format(message, sizeof(message), "%T", phrase, client);
+	CPrintToChat(client, "%s%s", prefix, message);
+}
+
+// Получить режим отображения меню
+int GetMenuDisplayMode()
+{
+	int iMode = c_MenuDisplay.IntValue;
+	if(iMode < 0) return 0;
+	if(iMode > 2) return 2;
+	return iMode;
+}
+```
+
+**Результат:** Более чистый и удобный код для работы с сообщениями.
+
+---
+
+## 📈 Эволюция версий v3.0 → v3.5
 
 ```
-OLD (v2.0 FINAL)
+myFork (v3.0)
   │
-  └─→ Fork NickFox+Pisex (v2.0.1)
-       └─→ myFork (v3.0)
+  └─→ Rimmer (v3.5)
+       ├─ Гибкое отображение меню (c_MenuDisplay)
+       ├─ Блокировка пистолетного раунда (c_FirstRound)
+       ├─ Контроль времени выдачи (c_MenuTime)
+       ├─ Отладочное логирование (c_Debug)
+       ├─ Per-player round limit tracking
+       └─ Улучшенные хелпер-функции
 ```
+
+---
+
+## 📊 Таблица сравнения v3.0 vs v3.5
 
 ### Добавления в Fork версии:
 - ✅ Система Cookie для сохранения предпочтений
@@ -445,6 +702,20 @@ OLD (v2.0 FINAL)
 - ✅ **Корректное отслеживание смерти через события**
 - ✅ **Уведомление серверу при выдаче оружия**
 
+## 📊 Таблица сравнения v3.0 vs v3.5
+
+| Функция | v3.0 | v3.5 |
+|---------|------|------|
+| Поддержка mp_halftime | ✅ | ✅ |
+| Многоязычность | ✅ | ✅ |
+| Cookie система | ✅ | ✅ |
+| Гибкое отображение меню | ❌ | ✅ NEW |
+| Блокировка пистолетного раунда | ❌ | ✅ NEW |
+| Контроль времени выдачи | ❌ | ✅ NEW |
+| Отладочное логирование | ❌ | ✅ NEW |
+| Per-player round limit | ❌ | ✅ NEW |
+| Хелпер-функции для фраз | ❌ | ✅ NEW |
+
 ---
 
 ## 🎯 Заключение
@@ -453,43 +724,35 @@ OLD (v2.0 FINAL)
 |--------|--------|-------------|
 | **OLD** | ⭐⭐ | Не использовать - слишком старая |
 | **Fork NickFox+Pisex** | ⭐⭐⭐ | Хороша, но есть проблема с halftime |
-| **myFork** | ⭐⭐⭐⭐⭐ | **РЕКОМЕНДУЕТСЯ** - полностью готова к использованию |
+| **myFork v3.0** | ⭐⭐⭐⭐⭐ | РЕКОМЕНДУЕТСЯ - полностью готова к использованию |
+| **Rimmer v3.5** | ⭐⭐⭐⭐⭐ | **РЕКОМЕНДУЕТСЯ** - лучшая версия с полным контролем |
 
-### Критические отличия myFork:
-1. 🔴 **Поддержка mp_halftime** - в Fork версиях при смене сторон кулдаун не сбрасывается!
-2. 📝 **Многоязычность** - легко менять сообщения БЕЗ перекомпиляции
-3. 🎨 **Красивые цвета** - динамически загружаются из файла
-4. 🏠 **Полный контроль** - все можно настроить через config файлы
-5. 🔧 **Лучшая надежность** - правильное отслеживание смерти и смены сторон
+### Критические отличия v3.5:
+1. 🎛️ **Гибкое управление меню** - 3 режима отображения для разных стилей игры
+2. 🏁 **Контроль первого раунда** - блокировка/разрешение пистолетного раунда
+3. ⏱️ **Свое время выдачи** - установите свое время вместо mp_buytime
+4. 🔍 **Отладка** - логирование для диагностики проблем
+5. 📊 **Точный расчет cooldown** - per-player tracking для каждой категории
+6. 🔧 **Лучший код** - хелпер-функции для упрощения разработки
+
+### Все возможности v3.0 + новые в v3.5:
+- ✅ Поддержка mp_halftime
+- ✅ Система многоязычности
+- ✅ Цветные сообщения через phrases
+- ✅ Проверка раунда для категорий
+- ✅ Правильное отслеживание смерти
+- ✅ Все новое из v3.5
 
 ---
 
-## 👨‍💻 О разработке myFork
+## 👨‍💻 О разработке v3.5
 
 ### Разработано совместно с AI
 
-**myFork** был создан Rimmer'ом с активной помощью искусственного интеллекта:
+**v3.5** был создан Rimmer'ом с активной помощью искусственного интеллекта:
 
 - 🤖 **GitHub Copilot** - помощь при кодировании, автодополнение
 - 🧠 **Claude Haiku (AI)** - архитектура кода, анализ проблем, оптимизация
-
-### Где использовалась AI помощь:
-
-| Область | Вклад |
-|---------|-------|
-| **Проектирование** | Анализ системы halftime, разработка архитектуры |
-| **Кодирование** | Реализация сложной логики многоязычности |
-| **Документация** | Создание README и таблицы сравнений |
-| **Оптимизация** | Рефакторинг кода для лучшей производительности |
-| **Тестирование** | Выявление краевых случаев и потенциальных ошибок |
-
-### Преимущества AI-ассистированной разработки:
-
-✅ Быстрая реализация функций  
-✅ Меньше багов благодаря анализу AI  
-✅ Лучшая документация  
-✅ Более чистый и оптимизированный код  
-✅ Учет всех деталей и краевых случаев  
 
 ---
 
