@@ -27,77 +27,157 @@
 	// ========== ПРЕФИКС ДЛЯ ЧАТ-СООБЩЕНИЙ ==========
 	"WP_Prefix"
 	{
-		"ru"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}[VIP] {YELLOW}|{DARKBLUE} "
+		"ru"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
+		"en"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
+		"ua"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
+		"pt"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
+		"fi"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
+		"es"	"{YELLOW}| {ORANGE}GS {DARKBLUE}▶ {ORANGE}!wp {YELLOW}|{DARKBLUE} "
 	}
 
 	// ========== ЧАТ-СООБЩЕНИЯ ==========
 	"WP_Cooldown"
 	{
 		"#format"	"{1:d}"
-		"ru"	"Комплект оружия будет доступен через: {ORANGE}%i{DARKBLUE} раунд(а)!"
+		"ru"	"Комплект оружия будет доступен через: {ORANGE}{1}{DARKBLUE} раунд(а)!"
+		"en"	"Weapon pack will be available in: {ORANGE}{1}{DARKBLUE} round(s)!"
+		"ua"	"Набір зброї буде доступний через: {ORANGE}{1}{DARKBLUE} раунд(и)!"
+		"pt"	"O pacote de armas estara disponivel em: {ORANGE}{1}{DARKBLUE} rodada(s)!"
+		"fi"	"Asepaketti on saatavilla: {ORANGE}{1}{DARKBLUE} kierroksen kuluttua!"
+		"es"	"El paquete de armas estara disponible en: {ORANGE}{1}{DARKBLUE} ronda(s)!"
 	}
 
 	"WP_Warmup"
 	{
 		"ru"	"{ORANGE}НЕЛЬЗЯ{DARKBLUE} взять комплект оружий во время разминки!"
+		"en"	"{ORANGE}YOU CANNOT{DARKBLUE} take a weapon pack during warmup!"
+		"ua"	"{ORANGE}НЕ МОЖНА{DARKBLUE} взяти набір зброї під час розминки!"
+		"pt"	"{ORANGE}NAO E POSSIVEL{DARKBLUE} pegar o pacote de armas durante o aquecimento!"
+		"fi"	"{ORANGE}ET VOI{DARKBLUE} ottaa asepakettia lammittelyn aikana!"
+		"es"	"{ORANGE}NO PUEDES{DARKBLUE} tomar el paquete de armas durante el calentamiento!"
 	}
 
 	"WP_FirstRound"
 	{
 		"ru"	"{ORANGE}НЕЛЬЗЯ{DARKBLUE} взять комплект оружий в {ORANGE}первом{DARKBLUE} раунде!"
+		"en"	"{ORANGE}YOU CANNOT{DARKBLUE} take a weapon pack in the {ORANGE}first{DARKBLUE} round!"
+		"ua"	"{ORANGE}НЕ МОЖНА{DARKBLUE} взяти набір зброї в {ORANGE}першому{DARKBLUE} раунді!"
+		"pt"	"{ORANGE}NAO E POSSIVEL{DARKBLUE} pegar o pacote de armas na {ORANGE}primeira{DARKBLUE} rodada!"
+		"fi"	"{ORANGE}ET VOI{DARKBLUE} ottaa asepakettia {ORANGE}ensimmaisella{DARKBLUE} kierroksella!"
+		"es"	"{ORANGE}NO PUEDES{DARKBLUE} tomar el paquete de armas en la {ORANGE}primera{DARKBLUE} ronda!"
 	}
 
 	"WP_AlreadyGot"
 	{
 		"ru"	"Вы уже {ORANGE}БРАЛИ{DARKBLUE} набор в этом раунде!"
+		"en"	"You have already {ORANGE}TAKEN{DARKBLUE} a pack this round!"
+		"ua"	"Ви вже {ORANGE}БРАЛИ{DARKBLUE} набір у цьому раунді!"
+		"pt"	"Voce ja {ORANGE}PEGOU{DARKBLUE} um pacote nesta rodada!"
+		"fi"	"Olet jo {ORANGE}OTTANUT{DARKBLUE} paketin talla kierroksella!"
+		"es"	"Ya {ORANGE}TOMASTE{DARKBLUE} un paquete en esta ronda!"
 	}
 
 	"WP_CanUseAgain"
 	{
 		"#format"	"{1:d}"
-		"ru"	"Снова взять можно будет через {ORANGE}%i{DARKBLUE} раунд(а)!"
+		"ru"	"Снова взять можно будет через {ORANGE}{1}{DARKBLUE} раунд(а)!"
+		"en"	"You can take it again in {ORANGE}{1}{DARKBLUE} round(s)!"
+		"ua"	"Знову можна взяти через {ORANGE}{1}{DARKBLUE} раунд(и)!"
+		"pt"	"Voce podera pegar novamente em {ORANGE}{1}{DARKBLUE} rodada(s)!"
+		"fi"	"Voit ottaa uudelleen {ORANGE}{1}{DARKBLUE} kierroksen kuluttua!"
+		"es"	"Podras tomarlo de nuevo en {ORANGE}{1}{DARKBLUE} ronda(s)!"
 	}
 
 	"WP_NotAlive"
 	{
 		"ru"	"Вы должны быть {ORANGE}ЖИВЫ{DARKBLUE}, чтобы взять себе комплект оружий!"
+		"en"	"You must be {ORANGE}ALIVE{DARKBLUE} to take a weapon pack!"
+		"ua"	"Ви повинні бути {ORANGE}ЖИВІ{DARKBLUE}, щоб взяти набір зброї!"
+		"pt"	"Voce precisa estar {ORANGE}VIVO{DARKBLUE} para pegar um pacote de armas!"
+		"fi"	"Sinun on oltava {ORANGE}ELOSSA{DARKBLUE} ottaaksesi asepaketin!"
+		"es"	"Debes estar {ORANGE}VIVO{DARKBLUE} para tomar un paquete de armas!"
 	}
 
 	"WP_NotAvailable"
 	{
 		"#format"	"{1:d}"
-		"ru"	"Эта категория будет доступна с {ORANGE}%i{DARKBLUE} раунда!"
+		"ru"	"Эта категория будет доступна с {ORANGE}{1}{DARKBLUE} раунда!"
+		"en"	"This category will be available from round {ORANGE}{1}{DARKBLUE}!"
+		"ua"	"Ця категорія буде доступна з {ORANGE}{1}{DARKBLUE} раунду!"
+		"pt"	"Esta categoria estara disponivel a partir da rodada {ORANGE}{1}{DARKBLUE}!"
+		"fi"	"Tama kategoria on saatavilla kierroksesta {ORANGE}{1}{DARKBLUE} alkaen!"
+		"es"	"Esta categoria estara disponible desde la ronda {ORANGE}{1}{DARKBLUE}!"
+	}
+
+	"WP_TimeExpired"
+	{
+		"ru"	"Время выдачи комплекта оружия уже вышло!"
+		"en"	"The time to receive a weapon pack has expired!"
+		"ua"	"Час видачі набору зброї вже минув!"
+		"pt"	"O tempo para receber o pacote de armas ja acabou!"
+		"fi"	"Asepaketin antamisaika on jo paattynyt!"
+		"es"	"El tiempo para recibir el paquete de armas ya termino!"
 	}
 
 	"WIP_GotWeapon"
 	{
 		"#format"	"{1:N}"
 		"ru"	"{ORANGE}%N{DARKBLUE} выдал себе комплект оружия."
+		"en"	"{ORANGE}%N{DARKBLUE} gave themselves a weapon pack."
+		"ua"	"{ORANGE}%N{DARKBLUE} видав собі набір зброї."
+		"pt"	"{ORANGE}%N{DARKBLUE} pegou um pacote de armas."
+		"fi"	"{ORANGE}%N{DARKBLUE} otti itselleen asepaketin."
+		"es"	"{ORANGE}%N{DARKBLUE} se dio un paquete de armas."
 	}
 
 	// ========== МЕНЮ (БЕЗ ПРЕФИКСА) ==========
 	"WP_MenuTitle"
 	{
 		"ru"	"Комплект оружия"
+		"en"	"Weapon Pack"
+		"ua"	"Набір зброї"
+		"pt"	"Pacote de Armas"
+		"fi"	"Asepaketti"
+		"es"	"Paquete de Armas"
 	}
 
 	"WP_MenuShow"
 	{
 		"ru"	"Показывать: %s"
+		"en"	"Show: %s"
+		"ua"	"Показувати: %s"
+		"pt"	"Mostrar: %s"
+		"fi"	"Nayta: %s"
+		"es"	"Mostrar: %s"
 	}
 
 	"WP_ShowAlways"
 	{
 		"ru"	"Всегда"
+		"en"	"Always"
+		"ua"	"Завжди"
+		"pt"	"Sempre"
+		"fi"	"Aina"
+		"es"	"Siempre"
 	}
 
 	"WP_ShowAfterDeath"
 	{
 		"ru"	"После смерти"
+		"en"	"After death"
+		"ua"	"Після смерті"
+		"pt"	"Apos morrer"
+		"fi"	"Kuoleman jalkeen"
+		"es"	"Despues de morir"
 	}
 
 	"WP_ShowNever"
 	{
 		"ru"	"Никогда"
+		"en"	"Never"
+		"ua"	"Ніколи"
+		"pt"	"Nunca"
+		"fi"	"Ei koskaan"
+		"es"	"Nunca"
 	}
 }
