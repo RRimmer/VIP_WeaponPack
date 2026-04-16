@@ -10,11 +10,9 @@ GitHub: https://github.com/RRimmer/VIP_WeaponPack
 
 ---
 
-### 📊 Статистика загрузок
-
+### 📊  Download
 - ![Downloads](https://img.shields.io/github/downloads/RRimmer/VIP_WeaponPack/total?style=flat-square&label=Всего%20загрузок)
 - ![Latest Release](https://img.shields.io/github/v/release/RRimmer/VIP_WeaponPack?style=flat-square&label=Последняя%20версия)
-
 **[📥 Скачать последний релиз →](https://github.com/RRimmer/VIP_WeaponPack/releases/latest)**
 
 ## Описание
